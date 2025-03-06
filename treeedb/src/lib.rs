@@ -21,7 +21,7 @@ pub fn facts<E>(
                 fc.field(&node, name, &child)?;
             }
         }
-        for child in node.named_children(&mut cursor) {
+        for child in node.children(&mut cursor) {
             if child.is_named() {
                 fc.child(&node, &child)?;
             }
