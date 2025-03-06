@@ -22,7 +22,9 @@ pub fn facts<E>(
             }
         }
         for child in node.named_children(&mut cursor) {
-            fc.child(&node, &child)?;
+            if child.is_named() {
+                fc.child(&node, &child)?;
+            }
             nodes.push(child);
         }
     }
